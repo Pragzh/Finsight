@@ -9,16 +9,13 @@
 
 ---
 
-## 🔗 Live Demo
 
-**[https://finsight.vercel.app](https://finsight.vercel.app)** — Frontend  
-**[https://finsight-api.onrender.com](https://finsight-api.onrender.com)** — Backend API
 
 > Test credentials: `test@test.com` / `123456`
 
 ---
 
-## 📌 Problem Statement
+##  Problem Statement
 
 Managing personal finances is difficult when transaction data is scattered across bank statements. Existing tools either require manual entry or expensive integrations. FinSight solves this by allowing users to upload their bank statement CSV and instantly get:
 - Category-wise spending breakdown
@@ -26,8 +23,7 @@ Managing personal finances is difficult when transaction data is scattered acros
 - Automatic detection of unusual transactions using z-score statistical analysis
 
 ---
-
-## 🚀 Features
+##  Features
 
 - **JWT Authentication** — Secure register/login with bcrypt password hashing and stateless JWT tokens
 - **CSV Upload Pipeline** — Upload bank statements in CSV format; system parses, validates, and stores transactions automatically
@@ -38,7 +34,7 @@ Managing personal finances is difficult when transaction data is scattered acros
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 Client (React) 
@@ -53,7 +49,7 @@ CSV File → Multer → csv-parser → Z-Score Check → PostgreSQL INSERT
 
 ---
 
-## 🧠 Anomaly Detection — How It Works
+## Anomaly Detection — How It Works
 
 Uses **z-score statistical analysis** — no external ML libraries needed.
 
@@ -74,7 +70,7 @@ zScore = |( amount - mean ) / stdDev|
 
 ---
 
-## 🗄️ Database Schema
+##  Database Schema
 
 ```sql
 -- Users table
@@ -109,7 +105,7 @@ CREATE INDEX idx_transactions_category ON transactions(user_id, category);
 
 ---
 
-## 📂 CSV Format
+##  CSV Format
 
 Your bank statement CSV must follow this format:
 
@@ -144,7 +140,7 @@ date,amount,category,description
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology | Why |
 |---|---|---|
@@ -160,7 +156,7 @@ date,amount,category,description
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 finsight/
@@ -195,7 +191,7 @@ finsight/
 
 ---
 
-## ⚙️ Local Setup
+##  Local Setup
 
 ```bash
 # 1. Clone the repo
@@ -219,7 +215,7 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
@@ -233,7 +229,7 @@ npm start
 
 ---
 
-## 📊 Key Engineering Decisions
+##  Key Engineering Decisions
 
 **1. Z-score over ML for anomaly detection**
 ML models require labelled training data — unavailable for a new user. Z-score adapts to each user's personal spending pattern from day one with zero training required.
@@ -252,7 +248,7 @@ Before inserting each row, checks if a transaction with the same date + amount +
 
 ---
 
-## 📈 What I'd Add at Scale
+##  What I'd Add at Scale
 
 - **Redis caching** on insights endpoints — category totals don't change until new CSV uploaded, no need to re-aggregate on every dashboard load
 - **Background job processing** — move CSV processing to a queue (Bull + Redis) so large files don't block the HTTP response
@@ -266,7 +262,7 @@ Before inserting each row, checks if a transaction with the same date + amount +
 
 **Pragati More**  
 3rd Year Computer Engineering Student  
-[GitHub](https://github.com/yourusername) · [LinkedIn](https://linkedin.com/in/yourusername)
+[GitHub](https://github.com/yourusername) · [LinkedIn](https://linkedin.com/in/pragatimore14)
 
 ---
 
